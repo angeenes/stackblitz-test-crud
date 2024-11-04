@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-content>
+        <article class="flex flex-col md:flex-row gap-2">
+            <section>
+                <div class="bg-blue-100 text-blue-400 rounded-full flex justify-center items-center h-12 w-12">
+                    <mat-icon aria-hidden="false" aria-label="request" fontIcon="assignment"></mat-icon>
+                </div>
+            </section>
+            <section class="ml-4">
+                <h1 class="text-gray-500">Demande d'autorisation de travaux</h1>
+                <h2>{{item?.project}}</h2>
+                <div class="flex gap-2 mt-8">
+                    <div class="bg-black text-slate-200 h-7 rounded-md px-3 flex justify-center items-center text-sm whitespace-nowrap">{{item?.requesterName}}</div>
+                    @if(item?.contract) {
+                    <div class="bg-slate-300 text-slate-600 h-7 rounded-md px-3 flex justify-center items-center text-sm whitespace-nowrap">Contrat {{item?.contract}}</div>
+                    }
+                </div>
+            </section>
+            <section class="ml-auto flex gap-2 absolute right-0 top-4">
+                <div class="h-7 rounded-xl px-3 flex justify-center items-center text-sm mt-2" 
+                [ngClass]="getStatusClasses(item?.status?? '')">{{item?.status}}</div>
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon aria-hidden="false" aria-label="open actions menu" fontIcon="more_vert"></mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="onModify()">modifier</button>
+                    <button mat-menu-item (click)="deleteRequest()">effacer</button>
+                </mat-menu>
+            </section>
+        </article>
+    </mat-card-content>
+</mat-card>

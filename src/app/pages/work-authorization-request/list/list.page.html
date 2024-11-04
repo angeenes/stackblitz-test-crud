@@ -1,0 +1,35 @@
+<article class="flex justify-between items-center mb-8">
+    <section>
+        <h2 class="text-xl">Liste des demandes ({{workAuthorizationRequests.length}})</h2>
+        <p class="text-gray-500 text-sm">Gérer les demandes d'autorisation de travaux</p>
+    </section>
+    <section>
+        <button mat-flat-button (click)="openCreateDialog()" class="whitespace-nowrap">+ Ajouter</button>
+    </section>
+</article>
+<section class="flex flex-col gap-4">
+    @defer {
+        @if(workAuthorizationRequests) {
+            @for(item of workAuthorizationRequests; track item._id) {
+            <app-request [item]="item" (onDelete)="getWorkAuthorizationRequests()"
+                (onUpdated)="getWorkAuthorizationRequests()"></app-request>
+            }
+            @if(workAuthorizationRequests.length === 0) {
+                <div class="text-center my-4">
+                    <p class="mb-4">Aucune demande existante</p>
+                    <button mat-flat-button (click)="openCreateDialog()" class="whitespace-nowrap">+ Créer une première demande</button>
+                </div>
+            }
+        }
+    }
+    @loading {
+        <div class="mx-auto my-4">
+            <mat-spinner></mat-spinner>
+        </div>
+    }
+    @error {
+        <p class="mx-auto my-4">Erreur de chargement</p>
+    }
+</section>
+
+

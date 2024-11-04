@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>{{data.operation === 'update' ? 'Modifier' : 'Ajouter'}} une demande d'autorisation</h2>
+<mat-dialog-content>
+  <form [formGroup]="requestForm" class="flex flex-col gap-6 py-4">
+    <div>
+      <input id="project" formControlName="project" type="text" placeholder="Projet de travaux*" class="form-input" />
+      @if(requestForm.get('project')?.invalid && requestForm.get('project')?.touched){
+      <div class="error-message">
+        Un nom de project est requis
+      </div>
+      }
+    </div>
+    <div>
+      <input id="requesterName" formControlName="requesterName" type="text" placeholder="Utilisateur*"
+        class="form-input" />
+      @if(requestForm.get('requesterName')?.invalid && requestForm.get('requesterName')?.touched){
+      <div class="error-message">
+        Un nom de demandeur est requis
+      </div>
+      }
+    </div>
+    <div>
+      <input id="contract" formControlName="contract" type="text" placeholder="Contrat" class="form-input" />
+    </div>
+    @if(data.operation === 'update' ) {
+    <mat-select formControlName="status">
+      <mat-option [value]="requestStatusEnum.PENDING">Pending</mat-option>
+      <mat-option [value]="requestStatusEnum.APPROVED">Approved</mat-option>
+      <mat-option [value]="requestStatusEnum.REJECTED">Rejected</mat-option>
+    </mat-select>
+    }
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="flex justify-between w-full">
+    <button mat-stroked-button mat-dialog-close>Annuler</button>
+    @if(data.operation === "add") {
+    <button type="submit" mat-flat-button [disabled]="requestForm.invalid" (click)="onSubmit()">Créer</button>
+    } @else if (data.operation === 'update') {
+    <button type="submit" mat-flat-button [disabled]="requestForm.invalid" (click)="onSubmit()">Mettre à jour</button>
+    }
+  </div>
+</mat-dialog-actions>
