@@ -73,12 +73,15 @@ For contact, email nelson.patrao@gmail.com.
 
 ## Notes
 
-- J'utilise habituellement mes propres composants custom (dumb ou smart) au lieu des composants Material Design, mais j'ai utilisé les composants Material Design pour ce projet afin de démontrer l'utilisation d'Angular Material.
+Dans le cadre de ce test technique, j’ai utilisé les composants Angular Material, conformément à la consigne. Habituellement, je crée mes propres composants custom (qu’ils soient “dumb” ou “smart”) avec des thèmes dédiés, mais ici, j’ai appliqué Angular Material pour répondre aux attentes spécifiques de ce test.
 
-- Je voudrais également noter l'utilisation de la syntaxe de template Control Flow, car j'ai récemment mis à jour des applications web Angular vers la dernière version d'Angular et converti les templates vers la nouvelle syntaxe. Cependant, je maîtrise également l'utilisation de la syntaxe de template legacy avec les directives comme ng-if, ng-for, etc.
+J’ai pris en charge la gestion du responsive, optimisée autant que possible dans le contexte du projet. Même si ça reste assez simple, avec la collaboration d’un designer, le design pourrait être encore affiné pour garantir une expérience optimale. Ayant l’expérience des design systems, je suis à l’aise pour adapter le rendu visuel en fonction des besoins du projet et maintenir une cohérence esthétique.
 
-- Avec plus de temps, je peux aussi implémenter la gestion des erreurs et des états de chargement à la création ou l'édition d'une demande.
+Pour ce test, j’ai également intégré la nouvelle syntaxe de template Control Flow et les standalone components d’Angular, suite à la mise à jour d'une application vers la dernière version sur ma mission actuelle. Je maîtrise également la syntaxe legacy (avec ng-if, ng-for, etc.), ce qui me permet d’adapter le code aux différentes versions et aux standards les plus récents.
 
-- Coté CSS, on peux se créer un theme avec des variables css, pour gérer les couleurs, les tailles, les espacements, le dark mode, etc ...
+Bien que non demandé, j’ai développé et hébergé une API très simple en NestJS avec MongoDB pour fournir des données en temps réel et permettre un test complet de la solution.
+Avec plus de temps, je pourrais approfondir la gestion des erreurs et des états de chargement lors de la création ou de l’édition de demandes pour une expérience utilisateur plus sympa.
 
-- Au plaisir d'échanger ! :)
+Enfin, côté CSS, j’envisagerais la création d’un thème basé sur des variables CSS, pour centraliser la gestion des couleurs, des espacements, et éventuellement le dark mode, ce qui permettrait une adaptabilité et une cohérence visuelle accrues.
+
+Au plaisir d’échanger davantage sur cette mission ! 🙂
